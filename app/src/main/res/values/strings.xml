@@ -7,4 +7,22 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_mobile">Mobile</string>
+    <string name="hint_email">Email</string>
+    <string name="location">Location</string>
+    <string name="submit">Submit</string>
+    <string name="select_images_gallery">Select From Gallery</string>
+    <string name="take_picture">Take a pic from Camera</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="developers">Developers</string>
+    <string name="about_developers">About Developers</string>
+    <string name="failure_message">Unable to connect to Server</string>
+    <string name="ok_text">Ok</string>
+    <string name="developed"><![CDATA[Powered by]]></string>
+    <string name="codenicely">Powered by CodeNicely</string>
+    <string name="description">Description</string>
 </resources>

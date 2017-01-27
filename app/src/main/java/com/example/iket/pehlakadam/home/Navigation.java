@@ -1,10 +1,10 @@
 package com.example.iket.pehlakadam.home;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.iket.pehlakadam.R;
+import com.example.iket.pehlakadam.about_us.view.AboutUsFragment;
+import com.example.iket.pehlakadam.contact_us.view.ContactUsFragment;
+import com.example.iket.pehlakadam.developers.view.DeveloperFragment;
+import com.example.iket.pehlakadam.gallery.view.GalleryFragment;
+import com.example.iket.pehlakadam.geotag.Geotag;
+import com.example.iket.pehlakadam.join_us.view.JoinUsFragment;
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -72,23 +78,46 @@ public class Navigation extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        if(id==R.id.nav_home){
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_geotag) {
+            setFragment(new Geotag(),"Geotag");
+        } else if (id == R.id.nav_image) {
+            setFragment(new GalleryFragment(),"Gallery");
+        } else if (id == R.id.nav_join_us) {
+            setFragment(new JoinUsFragment(),"Join Us");
+        } else if (id == R.id.nav_about_us) {
+            setFragment(new AboutUsFragment(),"About us");
+        } else if (id == R.id.nav_contact_us) {
+            setFragment(new ContactUsFragment(),"Contact us");
+        }else if (id == R.id.nav_developers) {
+            setFragment(new DeveloperFragment(),"Developers");
+        }else if (id == R.id.nav_image) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void setFragment(Fragment fragment, String title) {
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.home_layout, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+            getSupportActionBar().setTitle(title);
+        }
+    }
+    public void addFragment(Fragment fragment, String title) {
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.home_layout, fragment);
+            fragmentTransaction.commit();
+            getSupportActionBar().setTitle(title);
+        }
     }
 }
