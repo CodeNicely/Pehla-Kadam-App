@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.iket.pehlakadam.R;
 import com.example.iket.pehlakadam.about_us.model.RetrofitAboutUsProvider;
@@ -99,6 +100,7 @@ public class AboutUsFragment extends Fragment implements AboutUsView {
         ButterKnife.bind(this,view);
 
 //        snackView=getActivity().findViewById(R.id.cordinatorLayout);
+        
         imageLoader=new GlideImageLoader(getContext());
         aboutUsPresenter=new AboutUsPresenterImpl(this,new RetrofitAboutUsProvider());
 
@@ -131,10 +133,7 @@ public class AboutUsFragment extends Fragment implements AboutUsView {
     @Override
     public void showMessage(String message) {
 
-        Snackbar snackbar = Snackbar
-                .make(snackView, message, Snackbar.LENGTH_LONG);
-
-        snackbar.show();
+        Toast.makeText(getContext(), ""+message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
