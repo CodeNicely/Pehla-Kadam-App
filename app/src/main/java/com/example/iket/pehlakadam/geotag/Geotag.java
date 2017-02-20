@@ -64,14 +64,6 @@ public class Geotag extends Fragment implements OnMapReadyCallback, GoogleApiCli
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Geotag.
-     */
     // TODO: Rename and change types and number of parameters
     public static Geotag newInstance(String param1, String param2) {
         Geotag fragment = new Geotag();
@@ -104,6 +96,9 @@ public class Geotag extends Fragment implements OnMapReadyCallback, GoogleApiCli
                     .addApi(LocationServices.API)
                     .build();
         }
+        if(isGooglePlayServicesAvailable())
+            ;
+
 
         ButterKnife.bind(this, view);
         FragmentManager manager = getFragmentManager();
@@ -145,17 +140,26 @@ public class Geotag extends Fragment implements OnMapReadyCallback, GoogleApiCli
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            return;
+
         }
 
 //        mMap.setMyLocationEnabled(true);
         LocationManager locationManager = (LocationManager)getActivity().getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String bestProvider = locationManager.getBestProvider(criteria, true);
-        Location location = locationManager.getLastKnownLocation(bestProvider);
-        if (location != null) {
-            onLocationChanged(location);
+        try {
+            Location location = locationManager.getLastKnownLocation(bestProvider);
+            if (location != null) {
+                onLocationChanged(location);
+            }
+
         }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 //        locationManager.requestLocationUpdates(bestProvider, 20000, 0,this);
 

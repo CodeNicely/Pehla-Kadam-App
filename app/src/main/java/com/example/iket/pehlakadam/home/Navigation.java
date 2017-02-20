@@ -1,5 +1,8 @@
 package com.example.iket.pehlakadam.home;
 
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -10,8 +13,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.iket.pehlakadam.R;
 import com.example.iket.pehlakadam.about_us.view.AboutUsFragment;
@@ -20,10 +28,21 @@ import com.example.iket.pehlakadam.developers.view.DeveloperFragment;
 import com.example.iket.pehlakadam.gallery.view.GalleryFragment;
 import com.example.iket.pehlakadam.geotag.Geotag;
 import com.example.iket.pehlakadam.join_us.view.JoinUsFragment;
+import com.example.iket.pehlakadam.language.LanguageFragment;
 import com.example.iket.pehlakadam.video_player.VidPlayer;
+import com.example.iket.pehlakadam.welcome.view.WelcomeFragment;
+
+import java.io.PrintStream;
+import java.util.Locale;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class Navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +50,8 @@ public class Navigation extends AppCompatActivity
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -59,6 +80,8 @@ public class Navigation extends AppCompatActivity
         int id = item.getItemId();
         if(id==R.id.nav_home){
 
+        } else if (id == R.id.nav_language) {
+            setFragment(new WelcomeFragment(),"Language");
         } else if (id == R.id.nav_geotag) {
             setFragment(new Geotag(),"Geotag");
         } else if (id == R.id.nav_image) {
@@ -72,7 +95,6 @@ public class Navigation extends AppCompatActivity
         }else if (id == R.id.nav_developers) {
             setFragment(new DeveloperFragment(),"Developers");
         }else if (id == R.id.nav_image) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -68,7 +68,7 @@ public class VidPlayer extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_vid_player, container, false);
         ButterKnife.bind(this,view);
-        String vidAddress = "https://r2---sn-i3beln7k.googlevideo.com/videoplayback?requiressl=yes&ei=5BmUWNnjNtnyoAO36rHgAQ&clen=15232213&ratebypass=yes&gir=yes&itag=18&pl=20&mime=video%2Fmp4&signature=16F61FCE9DFC5AAF7B0ABC734937A8AF96E07C4C.4A63ED9A1D012703AB0B612B6C128AEA3791E657&upn=uV4yuv-HzJE&ipbits=0&sparams=clen,dur,ei,expire,gir,id,initcwndbps,ip,ipbits,ipbypass,itag,lmt,mime,mm,mn,ms,mv,nh,pl,ratebypass,requiressl,source,upn&id=o-ACd4OHwHGCLFH-W1HwcttQBAa6VRiVUj6HKMJvuPMyKl&source=youtube&expire=1486122564&dur=200.179&lmt=1486020025327296&ip=122.170.195.161&key=cms1&title=Badrinath+Ki+Dulhania++Official+Trailer+%231+(2017)+Varun+Dhawan+%26+Alia+Bhatt+Movie&req_id=4c5d20f58400a3ee&redirect_counter=2&cms_redirect=yes&ipbypass=yes&mm=30&mn=sn-i3beln7k&ms=nxu&mt=1486104738&mv=m&nh=IgpwcjAzLmhrZzAxKg4yMDMuMTMxLjI1MC44MQ";
+        String vidAddress = "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
         Uri vidUri = Uri.parse(vidAddress);
         videoView.setVideoURI(vidUri);
 

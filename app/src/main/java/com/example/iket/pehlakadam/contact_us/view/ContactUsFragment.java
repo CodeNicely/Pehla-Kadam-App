@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.example.iket.pehlakadam.R;
@@ -204,10 +205,7 @@ public class ContactUsFragment extends Fragment implements ContactUsView {
 
     @Override
     public void showMessage(String message) {
-        Snackbar snackbar = Snackbar
-                .make(snackView, message, Snackbar.LENGTH_LONG);
-
-        snackbar.show();
+        Toast.makeText(getContext(), message+"", Toast.LENGTH_SHORT).show();
     }
 
     @Override

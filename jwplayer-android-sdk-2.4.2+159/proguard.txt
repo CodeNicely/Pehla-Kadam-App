@@ -1,4 +1,0 @@
--keepclassmembers class com.longtailvideo.jwplayer.** {
-    @android.webkit.JavascriptInterface *;
-}
-

@@ -30,8 +30,6 @@ public class RetrofitAboutUsProvider implements AboutUsProvider {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor)
                 .build();
 
-
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Urls.BASE_URL)
                 .client(client)
