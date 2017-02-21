@@ -31,17 +31,13 @@
         android:id="@+id/first_question"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:textSize="25dp"
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/welcome_button"
+        android:text="Start your journey here"
         android:layout_below="@+id/first_question"
-        android:text="fvdfvvfdf"
-        android:gravity="center"
-        android:id="@+id/first_status"
+        android:layout_centerInParent="true"
         />
 
 </RelativeLayout>

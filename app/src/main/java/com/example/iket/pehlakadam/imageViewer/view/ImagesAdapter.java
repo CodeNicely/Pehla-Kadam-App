@@ -15,6 +15,7 @@ import com.example.iket.pehlakadam.imageViewer.model.ImagesData;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -23,7 +24,7 @@ import java.util.List;
 public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.MyViewHolder> {
 private List<ImagesData> imagesDataList = new ArrayList<>();
 private Context context;
-private LayoutInflater layoutInflater;
+private LayoutInflater layoutInflater;private Random mRandom = new Random();
 private ImageLoader imageLoader;
 public ImagesAdapter(Context context) {
         this.context = context;
@@ -47,6 +48,7 @@ public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 public void onBindViewHolder(final MyViewHolder holder, int position) {
 
         ImagesData imagesData = imagesDataList.get(position);
+//        holder.image1.getLayoutParams().height = getRandomIntInRange(250,75);
         imageLoader.loadImage(imagesData.getImage1(), holder.image1,holder.progressBar);
         }
 
@@ -67,4 +69,7 @@ protected class MyViewHolder extends RecyclerView.ViewHolder {
     }
 
 }
+//    protected int getRandomIntInRange(int max, int min){
+//        return mRandom.nextInt((max-min)+min)+min;
+//    }
 }

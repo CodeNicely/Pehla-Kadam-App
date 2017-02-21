@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.iket.pehlakadam.R;
 import com.example.iket.pehlakadam.imageViewer.model.ImagesData;
+import com.example.iket.pehlakadam.imageViewer.model.MockData;
 import com.example.iket.pehlakadam.imageViewer.model.RetrofitImageProvider;
 import com.example.iket.pehlakadam.imageViewer.presenter.ImagePresenter;
 import com.example.iket.pehlakadam.imageViewer.presenter.ImagePresenterImpl;
@@ -46,7 +48,8 @@ public class ImagesFragment extends Fragment implements ImagesInterface {
     ProgressBar progressBar;
     private ImagePresenter imagesPresenter;
     private ImagesAdapter adapter;
-    private GridLayoutManager lLayout;
+
+    private StaggeredGridLayoutManager staggeredGridLayoutManager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -88,13 +91,14 @@ public class ImagesFragment extends Fragment implements ImagesInterface {
         View view= inflater.inflate(R.layout.fragment_images, container, false);
 
         ButterKnife.bind(this,view);
-        imagesPresenter=new ImagePresenterImpl(this,new RetrofitImageProvider());
+//        imagesPresenter=new ImagePresenterImpl(this,new RetrofitImageProvider());
+        imagesPresenter=new ImagePresenterImpl(this,new MockData());
 
         adapter = new ImagesAdapter(getContext());
 
-        lLayout = new GridLayoutManager(getContext(),2);
+        staggeredGridLayoutManager=new StaggeredGridLayoutManager(2,1);
 
-        recyclerView.setLayoutManager(lLayout);
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
         recyclerView.setAdapter(adapter);
         imagesPresenter.requestImages();
 

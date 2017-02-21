@@ -6,5 +6,5 @@ import com.example.iket.pehlakadam.imageViewer.view.OnImagesReceived;
  * Created by Iket on 8/21/2016.
  */
 public interface ImageProvider {
-    void reqImages(OnImagesReceived onImagesReceived);
+    ImageList reqImages(OnImagesReceived onImagesReceived);
 }

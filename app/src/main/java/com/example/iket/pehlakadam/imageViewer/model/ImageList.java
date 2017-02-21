@@ -7,9 +7,21 @@ import java.util.List;
  */
 public class ImageList {
     private List<ImagesData> images;
+    private boolean success;
+    private String message;
 
-    public ImageList(List<ImagesData> images) {
+    public ImageList(List<ImagesData> images, boolean success, String message) {
         this.images = images;
+        this.success = success;
+        this.message = message;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public List<ImagesData> getImages() {

@@ -10,6 +10,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -23,6 +24,9 @@ import com.example.iket.pehlakadam.welcome.presenter.WelcomePresenterImpl;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.example.iket.pehlakadam.helper.MyApplication.getContext;
 
@@ -44,6 +48,8 @@ public class WelcomeFragment extends Fragment implements WelcomeView {
     private String mParam1;
     private String mParam2;
     private ViewPager viewPager;
+
+
     private LinearLayout dotsLayout;
     private ViewPagerAdapter viewPagerAdapter;
     private ProgressBar progressBar;
@@ -97,8 +103,6 @@ public class WelcomeFragment extends Fragment implements WelcomeView {
         viewPagerAdapter = new ViewPagerAdapter(getContext());
         viewPager=(ViewPager)view.findViewById(R.id.first_viewPager);
         welcomePresenter= new WelcomePresenterImpl(this, new MockWelcomeProvider());
-
-
 
         welcomePresenter.requestWelcomeData();
         viewPagerAdapter = new ViewPagerAdapter(getContext());
@@ -160,8 +164,6 @@ public class WelcomeFragment extends Fragment implements WelcomeView {
         }
 
     }
-
-
 
     @Override
     public void onAttach(Context context) {

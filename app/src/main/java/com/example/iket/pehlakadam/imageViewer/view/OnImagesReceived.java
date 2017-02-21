@@ -1,5 +1,6 @@
 package com.example.iket.pehlakadam.imageViewer.view;
 
+import com.example.iket.pehlakadam.imageViewer.model.ImageList;
 import com.example.iket.pehlakadam.imageViewer.model.ImagesData;
 
 import java.util.List;
@@ -9,5 +10,5 @@ import java.util.List;
  */
 public interface OnImagesReceived {
     void onFailure();
-    void onSuccess(List<ImagesData> imagesDataList);
+    void onSuccess(ImageList imageList);
 }

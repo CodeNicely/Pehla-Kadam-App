@@ -4,7 +4,6 @@ import com.example.iket.pehlakadam.helper.Urls;
 import com.example.iket.pehlakadam.imageViewer.api.RequestApiImages;
 import com.example.iket.pehlakadam.imageViewer.view.OnImagesReceived;
 
-import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -19,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitImageProvider implements ImageProvider {
 
     @Override
-    public void reqImages(final OnImagesReceived onImagesReceived) {
+    public ImageList reqImages(final OnImagesReceived onImagesReceived) {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -38,7 +37,7 @@ public class RetrofitImageProvider implements ImageProvider {
         call.enqueue(new Callback<ImageList>() {
             @Override
             public void onResponse(Call<ImageList> call, Response<ImageList> response) {
-                onImagesReceived.onSuccess(response.body().getImages());
+                onImagesReceived.onSuccess(response.body());
             }
 
             @Override
@@ -49,6 +48,7 @@ public class RetrofitImageProvider implements ImageProvider {
         });
 
 
+        return null;
     }
 
 }

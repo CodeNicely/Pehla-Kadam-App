@@ -5,7 +5,8 @@ public class Urls {
 
 
 
-    public static final String BASE_URL = "http://android.bunchofools.com/";
+//    public static final String BASE_URL = "http://android.bunchofools.com/";
+    public static final String BASE_URL = "http://ecellapp.pythonanywhere.com/";
     public static final String SUB_URL_JOIN_US = "join_us";
     public static final String SUB_URL_SPOT_UPLOAD = "upload_spot";
     public static final String SUB_URL_ABOUT_US = "about_us";
@@ -16,6 +17,6 @@ public class Urls {
     public static final String SUB_URL_SPLASH_SCREEN = "splash_screen";
 
     public static final String WELCOME = "welcome";
-    public static final String REQUEST_IMAGES = "images";
+    public static final String REQUEST_IMAGES = "spons/";
 
 }

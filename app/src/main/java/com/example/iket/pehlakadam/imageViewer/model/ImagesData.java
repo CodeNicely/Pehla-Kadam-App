@@ -7,7 +7,7 @@ public class ImagesData {
     private String image1;
     private int id;
 
-    public ImagesData(String image1, String image2) {
+    public ImagesData(int id,String image1) {
         this.image1 = image1;
         this.id=id;
     }
