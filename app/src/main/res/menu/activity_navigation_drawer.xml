@@ -5,7 +5,7 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Home" />
+            android:title="Home"/>
         <item
             android:id="@+id/nav_language"
             android:icon="@drawable/ic_menu_manage"
@@ -13,11 +13,15 @@
         <item
             android:id="@+id/nav_geotag"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Geotag" />
+            android:title="Locate Bins" />
         <item
-            android:id="@+id/nav_image"
+            android:id="@+id/nav_images"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Images/Videos" />
+            android:title="Images" />
+        <item
+            android:id="@+id/nav_video"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Videos" />
         <item
             android:id="@+id/nav_join_us"
             android:icon="@drawable/ic_menu_slideshow"

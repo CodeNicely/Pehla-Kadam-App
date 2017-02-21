@@ -94,14 +94,17 @@ private SharedPrefs sharedPrefs;
         int id = item.getItemId();
 
         if(id==R.id.nav_home){
-
+            setHome();
         } else if (id == R.id.nav_language) {
-            setFragment(new ImagesFragment(),"Language");
+            setFragment(new LanguageFragment(),"Language");
         } else if (id == R.id.nav_geotag) {
-            setFragment(new Geotag(),"Geotag");
-        } else if (id == R.id.nav_image) {
-            setFragment(new VidPlayer(),"Player");
-        } else if (id == R.id.nav_join_us) {
+            setFragment(new Geotag(),"GeoDustbin");
+        } else if (id == R.id.nav_images) {
+            setFragment(new ImagesFragment(),"Gallery");
+        }else if (id == R.id.nav_video) {
+            setFragment(new VidPlayer(),"Videos");
+        }
+        else if (id == R.id.nav_join_us) {
             setFragment(new JoinUsFragment(),"Join Us");
         } else if (id == R.id.nav_about_us) {
             setFragment(new AboutUsFragment(),"About us");
@@ -109,7 +112,6 @@ private SharedPrefs sharedPrefs;
             setFragment(new ContactUsFragment(),"Contact us");
         }else if (id == R.id.nav_developers) {
             setFragment(new DeveloperFragment(),"Developers");
-        }else if (id == R.id.nav_image) {
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
