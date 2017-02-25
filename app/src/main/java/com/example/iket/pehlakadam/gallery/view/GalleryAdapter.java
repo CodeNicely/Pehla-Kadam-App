@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.iket.pehlakadam.R;
+import com.example.iket.pehlakadam.gallery.model.data.ContentDetails;
 import com.example.iket.pehlakadam.helper.image_loader.GlideImageLoader;
 import com.example.iket.pehlakadam.helper.image_loader.ImageLoader;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by meghal on 13/10/16.
@@ -23,7 +25,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private ArrayList<String> imageUrlList=new ArrayList<>();
+    private List<ContentDetails> contentDetailses=new ArrayList<>();
     private ImageLoader imageLoader;
 
     public GalleryAdapter(Context context) {
@@ -47,7 +49,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         ImageViewHolder imageViewHolder=(ImageViewHolder)holder;
 
-        imageLoader.loadImage(imageUrlList.get(position),imageViewHolder.imageView,imageViewHolder.progressBar);
+        imageLoader.loadImage(contentDetailses.get(position).getImage_url(),imageViewHolder.imageView,imageViewHolder.progressBar);
         imageViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,12 +63,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
     @Override
     public int getItemCount() {
-        return imageUrlList.size();
+        return contentDetailses.size();
     }
 
 
-    public void setImageUrlList(ArrayList<String> imageUrlList){
-        this.imageUrlList=imageUrlList;
+    public void setImageUrlList(List<ContentDetails> imageUrlList){
+        this.contentDetailses=imageUrlList;
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder{

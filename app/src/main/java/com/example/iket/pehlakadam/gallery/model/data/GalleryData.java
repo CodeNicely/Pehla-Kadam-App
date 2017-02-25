@@ -1,6 +1,7 @@
 package com.example.iket.pehlakadam.gallery.model.data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by meghal on 13/10/16.
@@ -11,15 +12,13 @@ public class GalleryData {
 
     private boolean success;
     private String message;
-    private ArrayList<String> gallery_images;
+    private List<ContentDetails> content_details;
 
-
-    public GalleryData(boolean success, String message, ArrayList<String> gallery_images) {
+    public GalleryData(boolean success, String message, List<ContentDetails> content_details) {
         this.success = success;
         this.message = message;
-        this.gallery_images = gallery_images;
+        this.content_details = content_details;
     }
-
 
     public boolean isSuccess() {
         return success;
@@ -29,7 +28,8 @@ public class GalleryData {
         return message;
     }
 
-    public ArrayList<String> getGallery_images() {
-        return gallery_images;
+
+    public List<ContentDetails> getContent_details() {
+        return content_details;
     }
 }

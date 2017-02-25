@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import com.example.iket.pehlakadam.R;
 import com.example.iket.pehlakadam.gallery.model.RetrofitGalleryProvider;
 import com.example.iket.pehlakadam.gallery.model.data.GalleryData;
+import com.example.iket.pehlakadam.gallery.model.data.MockGallery;
 import com.example.iket.pehlakadam.gallery.presenter.GalleryPresenter;
 import com.example.iket.pehlakadam.gallery.presenter.GalleryPresenterImpl;
 
@@ -102,7 +103,7 @@ public class GalleryFragment extends Fragment implements GalleryView{
         galleryAdapter=new GalleryAdapter(getContext());
         recyclerView.setAdapter(galleryAdapter);
 
-        galleryPresenter =new GalleryPresenterImpl(this,new RetrofitGalleryProvider());
+        galleryPresenter =new GalleryPresenterImpl(this,new MockGallery());
         galleryPresenter.getImageUrls();
 
         return view;
@@ -147,7 +148,7 @@ public class GalleryFragment extends Fragment implements GalleryView{
     @Override
     public void setData(GalleryData galleryData) {
 
-        galleryAdapter.setImageUrlList(galleryData.getGallery_images());
+        galleryAdapter.setImageUrlList(galleryData.getContent_details());
         galleryAdapter.notifyDataSetChanged();
     }
 

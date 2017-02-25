@@ -24,7 +24,6 @@ import android.widget.TextView;
 import com.example.iket.pehlakadam.R;
 import com.example.iket.pehlakadam.about_us.view.AboutUsFragment;
 import com.example.iket.pehlakadam.contact_us.view.ContactUsFragment;
-import com.example.iket.pehlakadam.developers.view.DeveloperFragment;
 import com.example.iket.pehlakadam.gallery.view.GalleryFragment;
 import com.example.iket.pehlakadam.geotag.Geotag;
 import com.example.iket.pehlakadam.helper.SharedPrefs;
@@ -110,8 +109,6 @@ private SharedPrefs sharedPrefs;
             setFragment(new AboutUsFragment(),"About us");
         } else if (id == R.id.nav_contact_us) {
             setFragment(new ContactUsFragment(),"Contact us");
-        }else if (id == R.id.nav_developers) {
-            setFragment(new DeveloperFragment(),"Developers");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

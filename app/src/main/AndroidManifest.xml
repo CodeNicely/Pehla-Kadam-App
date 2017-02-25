@@ -35,6 +35,11 @@
             android:name=".home.Navigation"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".home.Home"
+            android:theme="@style/AppTheme"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

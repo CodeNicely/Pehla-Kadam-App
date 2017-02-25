@@ -40,7 +40,6 @@ public class GalleryPresenterImpl implements GalleryPresenter {
 
             @Override
             public void onFailure() {
-
                 galleryView.showLoader(false);
                 galleryView.showMessage(MyApplication.getContext().getResources().getString(R.string.failure_message));
             }
