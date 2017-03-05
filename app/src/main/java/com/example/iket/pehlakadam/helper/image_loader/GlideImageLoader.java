@@ -75,6 +75,7 @@ public class GlideImageLoader implements ImageLoader {
 */
 
     }
+
     public void load_circular_image(String url,final ImageView imageView){
         Glide.with(mContext).load(url).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageView) {
 
@@ -88,6 +89,26 @@ public class GlideImageLoader implements ImageLoader {
 
 
         });
+    }
+
+    @Override
+    public void loadImage1(String url, final ImageView imageView) {
+        Log.d("Response",url);
+        requestManager.load(url).crossFade().thumbnail(1f).listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+
+                return false;
+            }
+        }).diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .fitCenter().crossFade().into(imageView);
+
+
     }
 
 }

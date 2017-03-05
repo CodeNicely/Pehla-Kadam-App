@@ -1,5 +1,6 @@
 package com.example.iket.pehlakadam.home;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -14,7 +15,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.iket.pehlakadam.R;
+import com.example.iket.pehlakadam.gallery.model.data.ContentDetails;
+import com.example.iket.pehlakadam.helper.Keys;
 import com.example.iket.pehlakadam.helper.SharedPrefs;
+import com.example.iket.pehlakadam.image_viewer.ImageViewerActivity;
+import com.example.iket.pehlakadam.video_player.VideoPlayer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Home extends AppCompatActivity {
@@ -38,4 +46,23 @@ public class Home extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewpager);
     }
 
+    public void playVideo(String video_url) {
+        Log.d("res","2");
+        Intent vid=new Intent(Home.this, VideoPlayer.class);
+        vid.putExtra("url",video_url);
+        startActivity(vid);
+    }
+
+    public void showImage(List<ContentDetails> contentDetailses, int position) {
+        ArrayList<String> imageUrlList=new ArrayList<>();
+        for ( int i=0;i<contentDetailses.size();i++){
+            if(contentDetailses.get(i).getType()==1)
+            imageUrlList.add(contentDetailses.get(i).getImage_url());
+        }
+        Intent image_viewer=new Intent(Home.this, ImageViewerActivity.class);
+
+        image_viewer.putStringArrayListExtra("list", imageUrlList);
+        image_viewer.putExtra("position", position);
+        startActivity(image_viewer);
+    }
 }

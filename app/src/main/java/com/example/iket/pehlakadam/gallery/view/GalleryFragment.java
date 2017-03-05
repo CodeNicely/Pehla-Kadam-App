@@ -101,6 +101,9 @@ public class GalleryFragment extends Fragment implements GalleryView{
         recyclerView.setHasFixedSize(true);
 
         galleryAdapter=new GalleryAdapter(getContext());
+        //to init videos before scrolling
+        recyclerView.smoothScrollBy(0,1);
+        recyclerView.smoothScrollBy(0,-1);
         recyclerView.setAdapter(galleryAdapter);
 
         galleryPresenter =new GalleryPresenterImpl(this,new MockGallery());
@@ -149,6 +152,7 @@ public class GalleryFragment extends Fragment implements GalleryView{
     public void setData(GalleryData galleryData) {
 
         galleryAdapter.setImageUrlList(galleryData.getContent_details());
+
         galleryAdapter.notifyDataSetChanged();
     }
 

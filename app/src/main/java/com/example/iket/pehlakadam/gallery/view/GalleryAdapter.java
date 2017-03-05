@@ -1,7 +1,9 @@
 package com.example.iket.pehlakadam.gallery.view;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +14,13 @@ import com.example.iket.pehlakadam.R;
 import com.example.iket.pehlakadam.gallery.model.data.ContentDetails;
 import com.example.iket.pehlakadam.helper.image_loader.GlideImageLoader;
 import com.example.iket.pehlakadam.helper.image_loader.ImageLoader;
+import com.example.iket.pehlakadam.home.Home;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by meghal on 13/10/16.
- */
 
-public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImageViewHolder> {
 
 
     private Context context;
@@ -35,32 +35,43 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public GalleryAdapter.ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-
-        View view=layoutInflater.inflate(R.layout.gallery_item,parent,false);
-
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.gallery_item, parent, false);
         return new ImageViewHolder(view);
-
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(ImageViewHolder holder, final int position) {
 
         ImageViewHolder imageViewHolder=(ImageViewHolder)holder;
+        final int i=contentDetailses.get(position).getType();
 
-        imageLoader.loadImage(contentDetailses.get(position).getImage_url(),imageViewHolder.imageView,imageViewHolder.progressBar);
+        imageLoader.loadImage(contentDetailses.get(position).getImage_url(),holder.imageView,holder.progressBar);
+
+        if(i==0)
+            imageLoader.loadImage1("https://image.flaticon.com/icons/png/512/0/375.png",holder.play);
+        else holder.play.setVisibility(View.GONE);
+
         imageViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(context instanceof HomeActivity){
-//                    ((HomeActivity) context).openImageViewer(imageUrlList,position);
-//
-//                }
+
+
+                Log.d("res","1");
+                if(i==0){
+                    ((Home) context).playVideo(contentDetailses.get(position).getVideo_url());
+                }
+                else if(i==1)
+                {
+                    ((Home)context).showImage(contentDetailses,position);
+                }
             }
         });
 
     }
+
     @Override
     public int getItemCount() {
         return contentDetailses.size();
@@ -71,16 +82,17 @@ public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         this.contentDetailses=imageUrlList;
     }
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder{
+    public class ImageViewHolder extends RecyclerView.ViewHolder {
 
-//        @BindView(R.id.imageView)
-        ImageView imageView;
         ProgressBar progressBar;
+        ImageView imageView,play;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
-            imageView=(ImageView)itemView.findViewById(R.id.imageView);
-            progressBar=(ProgressBar)itemView.findViewById(R.id.imageProgressBar);
+            play=(ImageView)itemView.findViewById(R.id.play);
+            progressBar=(ProgressBar)itemView.findViewById(R.id.progressBar_gallery);
+            imageView=(ImageView)itemView.findViewById(R.id.image_gallery);
+
         }
     }
 

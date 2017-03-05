@@ -33,15 +33,20 @@
 
         <activity
             android:name=".home.Home"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity android:name=".welcome.view.Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".video_player.VideoPlayer"
+            android:configChanges="orientation|keyboardHidden|screenLayout|screenSize"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+        </activity>
+        <activity android:name=".image_viewer.ImageViewerActivity"/>
     </application>
 
 </manifest>
