@@ -42,4 +42,12 @@
             android:layout_height="match_parent"
             />
     </RelativeLayout>
+
+    <com.joaquimley.faboptions.FabOptions
+        android:id="@+id/fab_options"
+        app:button_menu="@menu/menu_float"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
 </android.support.design.widget.CoordinatorLayout>

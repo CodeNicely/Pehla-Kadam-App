@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.iket.pehlakadam.R;
+import com.example.iket.pehlakadam.about_us.model.MockDataAboutUS;
 import com.example.iket.pehlakadam.about_us.model.RetrofitAboutUsProvider;
 import com.example.iket.pehlakadam.about_us.model.data.AboutUsData;
 import com.example.iket.pehlakadam.about_us.presenter.AboutUsPresenter;
@@ -102,7 +103,7 @@ public class AboutUsFragment extends Fragment implements AboutUsView {
 //        snackView=getActivity().findViewById(R.id.cordinatorLayout);
         
         imageLoader=new GlideImageLoader(getContext());
-        aboutUsPresenter=new AboutUsPresenterImpl(this,new RetrofitAboutUsProvider());
+        aboutUsPresenter=new AboutUsPresenterImpl(this,new MockDataAboutUS());
 
         description.setVisibility(View.GONE);
         imageView.setVisibility(View.GONE);

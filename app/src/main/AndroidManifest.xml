@@ -32,19 +32,15 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".home.Navigation"
-            android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity android:name=".home.Home"
-            android:theme="@style/AppTheme"
-            >
+            android:name=".home.Home"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".welcome.view.Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

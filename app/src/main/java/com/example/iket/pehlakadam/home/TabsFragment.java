@@ -65,12 +65,7 @@ public class TabsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view;
-        if(mParam1==4)
-            view= inflater.inflate(R.layout.fragment_about_us, container, false);
-        else
-            view=inflater.inflate(R.layout.fragment_gallery,container,false);
-
+        View view=inflater.inflate(R.layout.fragment_gallery,container,false);
 
         return view;
     }

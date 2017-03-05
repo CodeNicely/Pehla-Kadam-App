@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.iket.pehlakadam.R;
-import com.example.iket.pehlakadam.home.HomeFragment;
-import com.example.iket.pehlakadam.home.Navigation;
 import com.example.iket.pehlakadam.welcome.model.data.PageDetails;
 
 import java.util.ArrayList;
@@ -56,7 +54,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         forward_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Navigation) context).setHome();
+                ((Welcome) context).setHome();
             }
         });
         question.setText(welcomeDetails.getQuestion_data());

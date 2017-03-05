@@ -57,6 +57,7 @@ public class Geotag extends Fragment implements OnMapReadyCallback, GoogleApiCli
     GoogleApiClient mGoogleApiClient;
     private OnFragmentInteractionListener mListener;
     private GoogleMap mMap;
+    View view;
 
 
 
@@ -86,8 +87,16 @@ public class Geotag extends Fragment implements OnMapReadyCallback, GoogleApiCli
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_maps, container, false);
+        if (view != null) {
+            ViewGroup viewGroupParent = (ViewGroup) view.getParent();
+            if (viewGroupParent != null)
+                viewGroupParent.removeView(view);
+        }
+        try {
+            view = inflater.inflate(R.layout.activity_maps, container, false);
+        } catch (Exception e) {
+            // map is already there
+        }
 
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
